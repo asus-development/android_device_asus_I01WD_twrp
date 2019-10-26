@@ -40,8 +40,8 @@ namespace android {
 namespace init {
 
 void vendor_load_properties() {
-    property_set("ro.bootimage.build.date.utc", "1546335651");
-    property_set("ro.build.date.utc", "1546335651");
+    property_set("ro.bootimage.build.date.utc", "1571106236");
+    property_set("ro.build.date.utc", "1571106236");
 	}
 
 }  // namespace init
