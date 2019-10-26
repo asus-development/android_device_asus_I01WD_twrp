@@ -28,15 +28,6 @@
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    symlink /dev/block/bootdevice/by-name/oem_stanvbk /dev/block/bootdevice/by-name/oem_stanvbk_a
-    symlink /dev/block/bootdevice/by-name/oem_stanvbk /dev/block/bootdevice/by-name/oem_stanvbk_b
-    symlink /dev/block/bootdevice/by-name/oem_dycnvbk /dev/block/bootdevice/by-name/oem_dycnvbk_a
-    symlink /dev/block/bootdevice/by-name/oem_dycnvbk /dev/block/bootdevice/by-name/oem_dycnvbk_b
-
-    # this is not good way for Hydrogen payload reserve
-    write  /dev/block/bootdevice/by-name/reserve 0
-    symlink /dev/block/bootdevice/by-name/reserve /dev/block/bootdevice/by-name/reserve_a
-    symlink /dev/block/bootdevice/by-name/reserve /dev/block/bootdevice/by-name/reserve_b
 
     chmod 0660 /dev/qseecom
     chown system drmrpc /dev/qseecom
@@ -124,10 +115,8 @@ service ldconfigtxt /sbin/touch /sbin/ld.config.txt
     seclabel u:r:recovery:s0
 
 on boot
-	export LD_CONFIG_FILE /sbin/ld.config.txt
+    export LD_CONFIG_FILE /sbin/ld.config.txt
     setprop sys.usb.config adb
-    write /proc/touchpanel/gesture_enable 1
-    write /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/usb/otg_switch 1
 
 on init
     start logd
