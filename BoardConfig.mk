@@ -145,3 +145,7 @@ TARGET_USES_LOGD := true
 
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/ASUS_I01WD/custombootimg.mk
 LZMA_RAMDISK_TARGETS := recovery
+
+# selinux
+SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/asus/ASUS_I01WD/sepolicy/private

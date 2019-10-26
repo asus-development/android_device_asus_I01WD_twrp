@@ -1,0 +1,5 @@
+allow init kernel:security setcheckreqprot;
+allow init kernel:system { module_request };
+allow init rootfs:file { create rw_file_perms entrypoint };
+allow init rootfs:lnk_file setattr;
+allow init init:capability dac_read_search;
