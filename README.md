@@ -47,4 +47,4 @@ To test it:
 fastboot boot out/target/product/ASUS_I01WD/recovery.img
 ```
 
-Kernel Source: https://github.com/LineageOS/android_kernel_asus_sm8150
+Kernel Source: https://github.com/zs630kl/android_kernel_asus_sm8150

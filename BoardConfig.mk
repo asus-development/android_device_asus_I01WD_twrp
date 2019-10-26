@@ -51,6 +51,25 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 TARGET_PREBUILT_KERNEL := device/asus/ASUS_I01WD/prebuilt/Image.gz-dtb
 
+# Kernel
+#BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
+#BOARD_KERNEL_CMDLINE += skip_override androidboot.fastboot=1 androidboot.selinux=permissive
+#BOARD_KERNEL_PAGESIZE := 4096
+#BOARD_KERNEL_BASE := 0x00000000
+#BOARD_KERNEL_TAGS_OFFSET := 0x00008000
+#BOARD_RAMDISK_OFFSET     := 0x01000000
+#BOARD_TAGS_OFFSET := 0x00000100
+#TARGET_KERNEL_ARCH := arm64
+#TARGET_KERNEL_HEADER_ARCH := arm64
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+#TARGET_COMPILE_WITH_MSM_KERNEL := true
+#TARGET_KERNEL_SOURCE := kernel/asus/sm8150
+#TARGET_KERNEL_CONFIG := vendor/zs630kl_defconfig
+#BOARD_KERNEL_SEPARATED_DTBO := true
+#TARGET_KERNEL_CLANG_COMPILE := true
+#TARGET_KERNEL_CLANG_VERSION := 6.0.2
+
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
