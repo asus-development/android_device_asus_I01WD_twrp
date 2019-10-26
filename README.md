@@ -27,6 +27,10 @@ repo sync
 
 To auotomatic make the twrp installer, you need to import this commit in the build/make path: https://gerrit.omnirom.org/#/c/android_build/+/33182/
 
+## Add-On
+to prevent "/sbin/sh: logcat: not found" you need to pick :
+https://review.lineageos.org/c/LineageOS/android_bionic/+/238738
+
 Finally execute these:
 
 ```
