@@ -245,7 +245,6 @@
     </hal>
     <hal format="hidl" optional="false">
         <name>android.hardware.keymaster</name>
-        <version>3.0</version>
         <version>4.0</version>
         <interface>
             <name>IKeymasterDevice</name>
@@ -3323,6 +3322,7 @@
         <sepolicy-version>26.0</sepolicy-version>
         <sepolicy-version>27.0</sepolicy-version>
         <sepolicy-version>28.0</sepolicy-version>
+        <sepolicy-version>29.0</sepolicy-version>
     </sepolicy>
     <avb>
         <vbmeta-version>1.0</vbmeta-version>
