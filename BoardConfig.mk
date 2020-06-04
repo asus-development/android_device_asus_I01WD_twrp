@@ -54,6 +54,7 @@ TARGET_PREBUILT_KERNEL := device/asus/I01WD/prebuilt/Image.gz-dtb
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
+TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 QCOM_BOARD_PLATFORMS += msmnile
 
 # Partitions
