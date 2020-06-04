@@ -114,10 +114,13 @@ TW_USE_TOOLBOX := true
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.boot@1.0-service \
     android.hidl.base@1.0 \
+    bootctrl.$(TARGET_BOARD_PLATFORM) \
     libicuuc \
     libion \
     libprocinfo \
-    libxml2
+    libxml2 \
+    update_engine_sideload
+
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libicuuc.so \
@@ -148,6 +151,8 @@ BOARD_USES_METADATA_PARTITION := true
 # Extras
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_LEDS_HAPTICS := true
+USE_COMMON_BOOTCTRL := true
+USE_COMMON_GPTUTILS := true
 USE_RECOVERY_INSTALLER := true
 RECOVERY_INSTALLER_PATH := device/asus/I01WD/installer
 TW_EXCLUDE_TWRPAPP := true

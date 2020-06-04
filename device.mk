@@ -1,8 +1,8 @@
-
 LOCAL_PATH := device/asus/I01WD
 
 # define hardware platform
 PRODUCT_PLATFORM := msmnile
+TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 
 #TEST
 # A/B support
@@ -34,6 +34,3 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
-
-
-
