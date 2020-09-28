@@ -28,3 +28,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(OUT_DIR)/target/product/$(PRODUCT_DEVICE)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
+
+# Include ASUS keys for zip signature verification
+PRODUCT_EXTRA_RECOVERY_KEYS += $(LOCAL_PATH)/security/asus
