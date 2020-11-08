@@ -4,7 +4,6 @@ LOCAL_PATH := device/asus/I01WD
 PRODUCT_PLATFORM := msmnile
 TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 
-#TEST
 # A/B support
 PRODUCT_PACKAGES += \
     otapreopt_script \
@@ -34,3 +33,12 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
+
+# qcom standard decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe \
+
+# tzdata
+PRODUCT_PACKAGES += \
+    tzdata_twrp
