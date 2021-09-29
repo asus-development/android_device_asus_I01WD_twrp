@@ -14,33 +14,31 @@
 # limitations under the License.
 #
 
-# Release name
-PRODUCT_RELEASE_NAME := ASUS_I01WD
+# Only the below variable(s) need to be changed!
+#
+# Define hardware platform
+PRODUCT_PLATFORM := msmnile
 
-$(call inherit-product, build/target/product/embedded.mk)
+# The below variables will be generated automatically
+#
+# Release name (automatically taken from this file's suffix)
+PRODUCT_RELEASE_NAME := $(lastword $(subst /, ,$(lastword $(subst _, ,$(firstword $(subst ., ,$(MAKEFILE_LIST)))))))
+
+# Custom vendor used in build tree (automatically taken from this file's prefix)
+CUSTOM_VENDOR := $(lastword $(subst /, ,$(firstword $(subst _, ,$(firstword $(MAKEFILE_LIST))))))
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/$(CUSTOM_VENDOR)/config/common.mk)
 
-# Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/asus/I01WD/device.mk)
+# OEM Info (automatically taken from device tree path)
+BOARD_VENDOR := $(or $(word 2,$(subst /, ,$(firstword $(MAKEFILE_LIST)))),$(value 2))
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := I01WD
-PRODUCT_NAME := omni_I01WD
-PRODUCT_BRAND := asus
-PRODUCT_MODEL := ASUS_I01WD
-PRODUCT_MANUFACTURER := asus
+PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := $(CUSTOM_VENDOR)_$(PRODUCT_DEVICE)
+PRODUCT_BRAND := $(BOARD_VENDOR)
+PRODUCT_MODEL := $(shell echo $(PRODUCT_BRAND) | tr  '[:lower:]' '[:upper:]')_$(PRODUCT_DEVICE)
+PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=WW_I01WD \
-    BUILD_PRODUCT=ASUS_I01WD \
-    TARGET_DEVICE=WW_I01WD
-
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-    ro.bootimage.build.date.utc \
-    ro.build.date.utc
-
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/$(PRODUCT_BRAND)/$(PRODUCT_DEVICE)/device.mk)
