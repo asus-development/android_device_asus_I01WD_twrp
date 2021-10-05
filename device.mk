@@ -61,4 +61,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.product=ZS630KL
 
 # Include OEM keys for zip signature verification
-PRODUCT_EXTRA_RECOVERY_KEYS += $(LOCAL_PATH)/security/$(BOARD_VENDOR)
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(LOCAL_PATH)/security/$(BOARD_VENDOR)1 \
+    $(LOCAL_PATH)/security/$(BOARD_VENDOR)2
